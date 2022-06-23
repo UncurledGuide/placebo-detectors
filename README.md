@@ -1,62 +1,60 @@
-# Data Science Web Scaffold
-A scaffold for deploying dockerized flask applications.
+# Heart Attack Data Analysis
+*AI Camp 2022 - Team Placebo Detectors*
+### Introduction
+Our dataset, collected from Kaggle, predicts whether or not certain individuals had a heart attack through focusing on varying health conditions these subjects have.This dataset considered 14 different variables, including age, chest pain, resting blood sugar, and maximum heart rate achieved. We used this dataset to create multiple visual models to predict a risk of heart attack.
 
-If you have any questions, feel free to open an issue on [Github](https://github.com/organization-x/omni/issues).
+### Project Content
+- Homepage
+ ![](app/static/assets/img/homepg.png)
+- Introduction
+- Exploratory Data Analysis
+  - Dataset
+  - Correlation heatmap
+  - Graphs for heart attack risk
+- Integrating machine learning
+  - KNN model
+  - SVM model
+  - Random forests model
+  - Gradient Boosting model
+  - Confusion matrixes
+- Conclusion
+- Our Team
 
-### Video Guide
-[![Deploy a Web Project with Flask](https://img.youtube.com/vi/JUb-PpejA7w/0.jpg)](https://youtu.be/JUb-PpejA7w "Deploy a Web Project with Flask")
+### Exploratory Data Analysis
+- Our website includes a sample of our raw data set and its columns
+- We included a correlation heatmap to show relationships between different variables
+- To help viewers understand the data better, we included graphs that show the heart attack risk by age and sex
 
-This guide covers how you can quickly deploy most projects with the [Flask](https://flask.palletsprojects.com/) framework and our omni scaffold.
+### Models
+- We used several models to present our data such as KNN, SVM, Random Forests, and Gradient Boosting.
+- Our KNN model allowed us to calculate the best accuracy of classifying whether someone will experience a heart attack
+- Our SVM model is a model that finds a hyperplane (a divider) in an N-dimensional space. The hyperplane helps separate and distinctly classify data points.
+- Our Random Forests model had the highest accuracy. There are various decision trees, each of which makes use of dataset samples. From the top of each tree, a random node is chosen, and it proceeds down the tree, picking a random node at each level until it reaches the bottom, which is the prediction. This process is repeated several times, and the final prediction is the average of all the predictions
+- Our Gradient Boosting Model makes the assumption that the next model presented minimizes the overall prediction error when combined with previous models. Its goal is to approximate the best output value based on the input values.
+- We also used a confusion matrix to help us understand how well our models are performing, what kind of errors are being made, and an overview of what we need to change to make our model as efficient and accurate as possible.
 
-### Quickstart Guide for Local Development
+### Conclusion
+- We compared each model's accuracy, precision, and recall values to determine which model performed the best
+- This project was significant as it helped us predict whether a person will have a heart attack or not, which is beneficial to those who want more health awareness.
 
-cd into the `/app` folder
+### Quickstart
+**DS/ML Part**: 
 
-`python3 -m pip install -r requirements.txt`
+Run final_project_all_models.ipynb in the ml folder.
 
-edit line 29 the `main.py` file to either the URL of the cocalc server you are on or `localhost` if you are running it on your own PC
+**Web Application Part**: 
 
-run
- 
- `python3 -m main`
+Enter the app folder in the terminal:
 
-to start the server on local, most changes while developing will be picked up in realtime by the server
+`cd app`
 
-### Quickstart Guide for Local Deployment
+Start the flask server:
 
-Make sure docker is installed on your system. Look that up if you don't know what that means.
+`python -m main`
 
-cd into the root director of the repo then run 
+Click the link appears in the terminal. Done!
 
-`docker build -t omni .`
 
-once built, run
-
-`docker run -d -p 9000:80 --restart=unless-stopped --name omni omni`
-
-you should then be able to see the `omni` container running when you run 
-
-`docker ps -a`
-
-if it seems to be stuck (i.e. constantly listed as `Restarting`), something is wrong with the docker image or code inside causing it to repeatedly fail.
-
-you can start debugging the project by running 
-
-`docker logs -f omni` 
-
-or
-
-`docker exec -it omni /bin/bash` for an interactive bash terminal (this option only works if the container is running and not stuck in a restart loop)
-
-### Common Issues
-
-`$'\r': command not found` when attempting to start docker container
-
-this is caused by the the `entrypoint.sh` script somehow having CLRF line endings instead of LF line endings.
-
-to fix this run
-
-`sed -i 's/\r$//' entrypoint.sh`
 
 ### File Structure
 The files/directories which you will need to edit are **bolded**
@@ -80,9 +78,12 @@ The files/directories which you will need to edit are **bolded**
           - css/
                - **styles.css**
           - images/
-               - **GDP_correlation_map.png**
+               - **KNNmodel.png**
           - js/
                - **scripts.js**
+- ml/
+     - final_project_all_models.ipynb
+     - heart.csv
 ### main.py ###
 Contains the main flask app itself.
 ### requirements.txt ###
