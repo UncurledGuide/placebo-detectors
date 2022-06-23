@@ -106,4 +106,5 @@ Contains the HTML pages used for the webpage. Edit these to fit your project. in
 `entrypoint.sh`
 `nginx_host`
 `host_config`
+
 **Only modify `host_config`. Do not touch the other files.**
